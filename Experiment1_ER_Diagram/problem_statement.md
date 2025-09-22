@@ -23,31 +23,35 @@ FlexiFit Gym wants a database to manage its members, trainers, and fitness progr
 
 ### ER Diagram:
 *Paste or attach your diagram here*  
-![ER Diagram](er_diagram_fitness.png)
+![ER Diagram] <img width="752" height="560" alt="image" src="https://github.com/user-attachments/assets/1374ac8f-a097-4b64-bad4-33e23529c3e1" />
+
 
 ### Entities and Attributes
 
-| Entity | Attributes (PK, FK) | Notes |
-|--------|--------------------|-------|
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
-|        |                    |       |
+| Entity     | Attributes (PK, FK)                             | Notes                        |
+| ---------- | ------------------------------------------------| ---------------------------- |
+| Member     | Member_ID (PK), Name, MembershipType, StartDate | Stores member info           |
+| Program    | Trainer_ID (PK), Name                           | Details of training programs |
+| Attendance | Attendance_ID (PK)                              | Tracks member attendance     |
+| Payment    | Payment_ID (PK), MembershipFee, SessionFee      | Stores payment records       |
+
 
 ### Relationships and Constraints
 
-| Relationship | Cardinality | Participation | Notes |
-|--------------|------------|---------------|-------|
-|              |            |               |       |
-|              |            |               |       |
-|              |            |               |       |
+| Relationship                    | Cardinality  | Participation | Notes                                |
+| ------------------------------- | ------------ | ------------- | ------------------------------------ |
+| Member–joins–Program            | 1:N to N:M   | Total         | Member joins many programs           |
+| Program–conducted by–Trainer    | 1:M          | Total         | One trainer conducts many programs   |
+| Attendance–tracked for–Program  | 1:N          | Partial       | Attendance linked to program         |
+| Attendance–booked by–Member     | 1:N          | Total         | Member books many attendance records |
+| Payment–recorded for–Attendance | 1:N          | Total         | Attendance linked to payment         |
+
 
 ### Assumptions
-- 
-- 
-- 
-
+- Member can join multiple programs.
+- Each program has one trainer.
+- Attendance recorded per session.
+- Payments linked with attendance.
 ---
 
 # Scenario B: City Library Event & Book Lending System
