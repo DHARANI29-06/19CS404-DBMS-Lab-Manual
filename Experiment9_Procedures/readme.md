@@ -63,6 +63,25 @@ Key Differences:
 **Expected Output:**  
 Square of 6 is 36
 
+**code**
+```sql
+SET SERVEROUTPUT ON;
+
+CREATE OR REPLACE PROCEDURE find_square(num IN NUMBER) IS
+    result NUMBER;
+BEGIN
+    result := num * num;
+    DBMS_OUTPUT.PUT_LINE('Square of ' || num || ' is ' || result);
+END;
+/
+
+BEGIN
+    find_square(6);
+END;
+/
+```
+<img width="315" height="89" alt="image" src="https://github.com/user-attachments/assets/c3aa422f-6068-4b42-a65d-95cab48ffddc" />
+
 ---
 
 ## 2. Write a PL/SQL Function to Return the Factorial of a Number
